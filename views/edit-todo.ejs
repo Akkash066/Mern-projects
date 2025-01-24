@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit todo task</title>
+</head>
+<body>
+    <h1>Edit page</h1>
+    <form method="post" action="/tasks/<%=task._id%>?_method=PUT">
+    <textarea name="heading"><%=task.heading%></textarea>
+    <br><br>
+    <textarea name="task"><%=task.task%></textarea>
+    <br><br>
+   
+        <button>submit</button>
+    </form>
+</body>
+</html>

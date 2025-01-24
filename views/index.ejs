@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+</head>
+<body>
+    <h1>Todo app</h1>
+    <%for(task of tasks){%>
+        <form method="post" action="/tasks/<%=task._id%>?_method=DELETE">
+        <h3><%=task.heading %></h3>
+        <li><%=task.task %> <a href="/tasks/<%=task._id%>/edit">edit</a><button type="submit">Delete</button> </li>
+            
+        </form>
+    <%} %>
+    <a href="/tasks/new-task">Add new task</a>    
+</body>
+</html>
+
