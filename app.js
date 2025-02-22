@@ -5,23 +5,24 @@ const mongoose = require('mongoose');
 const Task = require("./models/tasks.js");
 const methodOverride = require('method-override');
 
+// middlewares
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride('_method'));
 
-
+// For database connection
 main()
 .then(()=>{
     console.log("connection Success");
 })
 .catch(err => console.log(err));
-
 async function main() {
   await mongoose.connect('mongodb://127.0.0.1:27017/tasks');
 }
 
+// Schema
 const tasks = new mongoose.Schema({
     heading: String,
     task: String,
@@ -81,7 +82,7 @@ app.delete("/tasks/:id", async(req, res)=>{
     res.redirect("/");
 });
 
-// server is running at port no 8080
+// server is running at port 8080
 app.listen(8080, (req, res) =>{
-    console.log("running");
+    console.log("server is running");
 });
